@@ -20,14 +20,20 @@ class ModelGConvTranspose(nn.Module):
         self.dropout = nn.Dropout(p=0.3)
         
         self.conv1 = nn.ConvTranspose2d(256, 128, 3, stride=2, output_padding=1)
+        nn.init.xavier_normal_(self.conv1.weight)
         self.conv2 = nn.ConvTranspose2d(128, 64, 3)
+        nn.init.xavier_normal_(self.conv2.weight)
         self.bn2 = nn.BatchNorm2d(64)
         self.conv3 = nn.ConvTranspose2d(64, 32, 3)
+        nn.init.xavier_normal_(self.conv3.weight)
         self.bn3 = nn.BatchNorm2d(32)
         self.conv4 = nn.ConvTranspose2d(32, 16, 3)
+        nn.init.xavier_normal_(self.conv4.weight)
         self.bn4 = nn.BatchNorm2d(16)
         self.conv5 = nn.ConvTranspose2d(16, 8, 3)
+        nn.init.xavier_normal_(self.conv5.weight)
         self.conv6 = nn.ConvTranspose2d(8, 1, 3)
+        nn.init.xavier_normal_(self.conv6.weight)
         
         
     def forward(self, z, ParticleMomentum_ParticlePoint):
