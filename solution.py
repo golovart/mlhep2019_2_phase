@@ -10,6 +10,9 @@ import torch.optim as optim
 import torch.utils.data as utils
 import os
 
+def swish(x):
+    return x * torch.sigmoid(x)
+
 def main():
     input_dir, output_dir = sys.argv[1:]
     

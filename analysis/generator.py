@@ -3,6 +3,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 NOISE_DIM = 10
 
+def swish(x):
+    return x * torch.sigmoid(x)
+
 class ModelGConvTranspose(nn.Module):
     def __init__(self, z_dim):
         self.z_dim = z_dim
